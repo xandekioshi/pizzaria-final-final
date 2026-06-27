@@ -98,7 +98,7 @@ bebidas vindas direto do banco de dados (separadas pelas abas "Pizzas" e
 "Bebidas"). Cada produto tem o botão "Adicionar", que joga o item no carrinho
 lateral e atualiza o total em tempo real.
 
-![Detalhe dos cards do cardápio](prints/print_2.png)
+![Detalhe dos cards do cardápio](prints/print_3.png)
 
 Ainda nesta página fica a seção **"Crie sua pizza com Inteligência Artificial"**,
 onde o cliente escolhe 3 ingredientes e a IA gera um nome e uma descrição para a
