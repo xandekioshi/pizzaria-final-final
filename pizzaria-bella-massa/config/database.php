@@ -18,7 +18,7 @@ $DB_HOST = '127.0.0.1';
 $DB_PORT = '5432';
 $DB_NOME = 'pizzaria';   // banco criado com:  CREATE DATABASE pizzaria;
 $DB_USER = 'postgres';
-$DB_SENHA = 'postgres';  // <<< troque pela senha do seu PostgreSQL (no meu caso e no da fernanada é 1234)
+$DB_SENHA = 'postgres';  // <<< troque pela senha do seu PostgreSQL (no meu caso e no da fernanada é 1234);
 
 try {
     $dsn = "pgsql:host=$DB_HOST;port=$DB_PORT;dbname=$DB_NOME";
