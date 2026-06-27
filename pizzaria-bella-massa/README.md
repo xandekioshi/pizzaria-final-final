@@ -88,7 +88,7 @@ O sistema é dividido em duas áreas: a do **cliente** (pública) e a do
 
 ### 1. Cardápio (`index.php`)
 
-![Tela do cardápio](prints/print_5.png)
+![Tela do cardápio](prints/print_1.png)
 
 É a página inicial e o coração do site. O menu superior se adapta ao usuário:
 mostra "Entrar" e "Cadastrar" para visitantes, ou o nome da pessoa e o link de
@@ -98,21 +98,21 @@ bebidas vindas direto do banco de dados (separadas pelas abas "Pizzas" e
 "Bebidas"). Cada produto tem o botão "Adicionar", que joga o item no carrinho
 lateral e atualiza o total em tempo real.
 
-![Detalhe dos cards do cardápio](prints/print_7.png)
+![Detalhe dos cards do cardápio](prints/print_2.png)
 
 Ainda nesta página fica a seção **"Crie sua pizza com Inteligência Artificial"**,
 onde o cliente escolhe 3 ingredientes e a IA gera um nome e uma descrição para a
 pizza personalizada.
 
-![Seção do gerador de pizza com IA](prints/print_8.png)
+![Seção do gerador de pizza com IA](prints/print_3.png)
 
 No fim da página estão os blocos "Sobre" e "Contato".
 
-![Seções Sobre e Contato](prints/print_6.png)
+![Seções Sobre e Contato](prints/print_4.png)
 
 ### 2. Cadastro (`cadastro.php`)
 
-![Tela de cadastro](prints/print_1.png)
+![Tela de cadastro](prints/print_5.png)
 
 Formulário para o cliente criar uma conta, com nome, e-mail, senha e confirmação
 de senha. A senha é guardada no banco com hash (`password_hash`), nunca em texto
@@ -121,7 +121,7 @@ navegador (as senhas precisam coincidir) quanto no back-end.
 
 ### 3. Login (`login.php`)
 
-![Tela de login](prints/print_2.png)
+![Tela de login](prints/print_6.png)
 
 Tela de autenticação onde o usuário informa e-mail e senha. Ao entrar, o sistema
 cria a sessão (`$_SESSION`): clientes são levados ao cardápio e administradores
@@ -129,7 +129,7 @@ ao painel. Só quem está logado consegue finalizar um pedido.
 
 ### 4. Finalizar pedido / Checkout (`checkout.php`)
 
-![Tela de checkout](prints/print_3.png)
+![Tela de checkout](prints/print_7.png)
 
 Acessível apenas para usuários logados. De um lado fica o **endereço de
 entrega**, onde o cliente digita o CEP e a integração com o **ViaCEP** preenche
@@ -141,7 +141,7 @@ preço de cada item é sempre reconferido no servidor).
 
 ### 5. Pedido confirmado (`pedido-confirmado.php`)
 
-![Tela de pedido confirmado](prints/print_4.png)
+![Tela de pedido confirmado](prints/print_8.png)
 
 Mostrada logo após fechar o pedido. Exibe o número do pedido e uma **linha do
 tempo de rastreio** (Pedido recebido → Em preparo → Saiu para entrega →
