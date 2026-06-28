@@ -154,7 +154,7 @@ Restrita a administradores, reúne três telas: o **Dashboard** (com cartões de
 resumo e um gráfico de vendas), a tela de **Produtos** (cadastrar, editar e
 excluir itens do cardápio) e a de **Pedidos** (acompanhar os pedidos e mudar o
 status de cada um).
-![Tela de pedido confirmado](rastreio.png)
+![Tela de admin](admin.png)
 ## O que está implementado
 
 Obrigatórios:
