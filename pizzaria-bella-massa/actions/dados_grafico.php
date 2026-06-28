@@ -1,11 +1,5 @@
 <?php
-/**
- * actions/dados_grafico.php
- * Devolve, em JSON, os dados para o gráfico do dashboard (Extra 2).
- * Usa GROUP BY + SUM na tabela de itens.
- *   tipo = mais_vendidas -> soma a quantidade por produto
- *   tipo = faturamento   -> soma quantidade * preço por produto
- */
+
 session_start();
 require_once __DIR__ . '/../config/database.php';
 header('Content-Type: application/json');
