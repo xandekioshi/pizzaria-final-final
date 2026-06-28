@@ -1,10 +1,5 @@
 <?php
-/**
- * actions/status_pedido.php
- * Devolve o status atual de um pedido em JSON.
- * É chamado de tempos em tempos pelo rastreio.js (Extra 3).
- * Usa GET porque é só uma consulta.
- */
+
 session_start();
 require_once __DIR__ . '/../config/database.php';
 header('Content-Type: application/json');
