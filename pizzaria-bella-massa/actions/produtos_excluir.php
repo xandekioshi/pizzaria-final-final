@@ -1,9 +1,5 @@
 <?php
-/**
- * actions/produtos_excluir.php
- * Exclui um produto pelo id. Só admin.
- * Recebe o id por GET (ex: produtos_excluir.php?id=5).
- */
+
 session_start();
 require_once __DIR__ . '/../config/database.php';
 
