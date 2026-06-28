@@ -1,7 +1,4 @@
-/**
- * admin-dashboard.js  (Extra 2)
- * Busca os dados no PHP (GROUP BY/SUM) e desenha o gráfico com Chart.js.
- */
+// GRANDE PARTE DO JAVA FOI REVISADO E COMPLEMENTADO PELO CLAUDE OPUS 4.8
 document.addEventListener('DOMContentLoaded', () => {
   const canvas = document.getElementById('grafico-vendas');
   const seletor = document.getElementById('seletor-tipo-grafico');
@@ -16,7 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
       ? 'Faturamento por produto'
       : 'Pizzas mais vendidas';
 
-    // Se já existe um gráfico, destrói antes de criar outro.
+ 
     if (grafico) grafico.destroy();
 
     grafico = new Chart(canvas, {
@@ -36,7 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Primeira carga e troca pelo seletor.
+  
   carregarGrafico(seletor.value);
   seletor.addEventListener('change', () => carregarGrafico(seletor.value));
 });
