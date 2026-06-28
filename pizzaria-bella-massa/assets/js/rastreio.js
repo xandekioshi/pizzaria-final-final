@@ -53,6 +53,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  // Repete a cada 5 segundos.
+ 
   setInterval(verificarStatus, 5000);
 });
