@@ -1,4 +1,6 @@
 <?php
+// GRANDE PARTE DO FRAMEWORK DO SITE FOI FEITO COM AUXILIO DO CLAUDE OPUS 4.8
+
 session_start();
 require_once __DIR__ . '/../config/database.php';
 
@@ -7,7 +9,7 @@ if (!isset($_SESSION['usuario_id']) || empty($_SESSION['is_admin'])) {
     exit;
 }
 
-// Todos os pedidos com o nome do cliente.
+
 $pedidos = $pdo->query(
     "SELECT p.*, u.nome AS cliente
      FROM pedidos p
@@ -15,7 +17,7 @@ $pedidos = $pdo->query(
      ORDER BY p.data_pedido DESC"
 )->fetchAll();
 
-// Para cada pedido, busca os itens (para o resumo e o modal de detalhes).
+
 $stmtItens = $pdo->prepare(
     "SELECT i.quantidade, i.preco_unitario, pr.nome
      FROM itens_pedido i
@@ -92,19 +94,19 @@ $statusOpcoes = [
                   $stmtItens->execute([':id' => $p['id']]);
                   $itens = $stmtItens->fetchAll();
 
-                  // Resumo curto dos itens para a coluna "Itens".
+                  
                   $resumo = [];
                   foreach ($itens as $it) {
                       $resumo[] = $it['quantidade'] . 'x ' . $it['nome'];
                   }
                   $resumoTexto = implode(', ', $resumo);
 
-                  // Endereço em uma linha.
+                 
                   $endereco = $p['rua'] . ', ' . $p['numero']
                             . ($p['complemento'] ? ' (' . $p['complemento'] . ')' : '')
                             . ' - ' . $p['bairro'] . ', ' . $p['cidade'] . '/' . $p['estado'];
 
-                  // Itens em JSON para o modal de detalhes (lido pelo JS).
+                  
                   $itensJson = htmlspecialchars(json_encode($itens), ENT_QUOTES);
               ?>
                 <tr data-pedido-id="<?php echo $p['id']; ?>"
@@ -141,7 +143,7 @@ $statusOpcoes = [
         </table>
       </section>
 
-      <!-- MODAL: DETALHES DO PEDIDO -->
+      
       <dialog id="modal-detalhes-pedido" class="modal-produto">
         <header class="modal-produto__cabecalho">
           <h2>Detalhes do pedido <span id="detalhe-numero-pedido">#0000</span></h2>
