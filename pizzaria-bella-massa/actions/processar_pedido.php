@@ -1,28 +1,22 @@
 <?php
-/**
- * actions/processar_pedido.php
- * Recebe o carrinho e o endereço, valida tudo no servidor e salva o pedido.
- *
- * SEGURANÇA: nunca confiamos no preço que vem do navegador. Buscamos o
- * preço de cada produto direto no banco e recalculamos o total aqui.
- */
+
 session_start();
 require_once __DIR__ . '/../config/database.php';
 
-// 1) Só logado e só por POST.
+
 if (!isset($_SESSION['usuario_id']) || $_SERVER['REQUEST_METHOD'] !== 'POST') {
     header('Location: ../login.php');
     exit;
 }
 
-// 2) Lê o carrinho enviado em JSON: [{ "id": 1, "quantidade": 2 }, ...]
+
 $carrinho = json_decode($_POST['carrinho_json'] ?? '[]', true);
 if (!is_array($carrinho) || count($carrinho) === 0) {
     header('Location: ../checkout.php');
     exit;
 }
 
-// 3) Recalcula o subtotal usando os preços do banco.
+
 $subtotal = 0;
 $itensValidados = [];
 foreach ($carrinho as $item) {
@@ -36,7 +30,7 @@ foreach ($carrinho as $item) {
     $stmt->execute([':id' => $idProduto]);
     $produto = $stmt->fetch();
     if (!$produto) {
-        continue; // produto não existe, ignora
+        continue; 
     }
 
     $precoUnitario = (float)$produto['preco'];
@@ -54,7 +48,7 @@ if (count($itensValidados) === 0) {
     exit;
 }
 
-// 4) Recalcula o frete no servidor (mesma regra do calcular_frete.php).
+
 $cep    = preg_replace('/\D/', '', $_POST['cep'] ?? '');
 $estado = strtoupper(trim($_POST['estado'] ?? ''));
 if (substr($cep, 0, 2) === '79') {
@@ -67,7 +61,7 @@ if (substr($cep, 0, 2) === '79') {
 
 $valorTotal = $subtotal + $frete;
 
-// 5) Salva o pedido e os itens dentro de uma transação.
+
 try {
     $pdo->beginTransaction();
 
@@ -94,7 +88,7 @@ try {
     ]);
     $idPedido = $stmt->fetchColumn();
 
-    // Insere cada item do pedido.
+    
     $stmtItem = $pdo->prepare(
         "INSERT INTO itens_pedido (id_pedido, id_produto, quantidade, preco_unitario)
          VALUES (:id_pedido, :id_produto, :quantidade, :preco_unitario)"
