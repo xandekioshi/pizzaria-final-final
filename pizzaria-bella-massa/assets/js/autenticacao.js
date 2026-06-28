@@ -1,11 +1,7 @@
-/**
- * autenticacao.js
- * Pequena validação no navegador antes de enviar o cadastro.
- * (A validação "de verdade" também acontece no PHP.)
- */
+// GRANDE PARTE DO JAVA FOI REVISADO E COMPLEMENTADO PELO CLAUDE OPUS 4.8
 document.addEventListener('DOMContentLoaded', () => {
   const formCadastro = document.getElementById('form-cadastro');
-  if (!formCadastro) return; // só roda na página de cadastro
+  if (!formCadastro) return; 
 
   formCadastro.addEventListener('submit', (e) => {
     const senha = document.getElementById('senha-cadastro').value;
